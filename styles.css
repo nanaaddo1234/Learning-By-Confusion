@@ -1,0 +1,194 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: #333;
+}
+
+/* Position Method in top right */
+#method-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #333;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#slideshow-modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+/* When visible, show as flex */
+#slideshow-modal.show {
+    display: flex;
+}
+
+/* Hide modal by default */
+.hidden {
+    display: none;
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    width: 60%;
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+}
+
+/* Slides */
+.slide {
+    display: none;
+    font-size: 1.2em;
+}
+.slide.active {
+    display: block;
+}
+
+/* Navigation arrows */
+.nav {
+    background-color: #333;
+    color: white;
+    padding: 8px 12px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+/* Close button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.input-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 200px;
+    flex-wrap: wrap;
+}
+
+/* Upload Label as button */
+.upload-label {
+    background-color: #333;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Hide the raw input, label will trigger it */
+#data-upload {
+    display: none;
+}
+
+/* Tuning parameter input */
+#tuning-parameter {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-width: 200px;
+}
+
+#image-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.image-box {
+    border: 2px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.image-box img {
+    height: 100px;
+    width: auto;
+    display: block;
+}
+
+.order-controls {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.order-controls button {
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+#image-labeling-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.labeling-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.labeling-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    padding: 10px 0;
+    border-bottom: 2px solid #ccc;
+}
+
+.scrollable-list {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.labeling-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.labeling-row img {
+    height: 80px;
+    margin-right: 15px;
+}
+
+.labeling-row input[type="number"] {
+    width: 120px;
+    padding: 5px;
+}
+
+

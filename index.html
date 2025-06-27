@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning By Confusion</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Phase Transition Detector</h1>
+    </header>
+    <main>
+        <div class="input-section">
+            <div id="upload-initial">
+                <label for="image-upload" class="upload-label">Upload Spin Images</label>
+            </div>
+            <div id="upload-after-confirm" class="hidden">
+                <button id="add-more-images" type="button">Add More Images</button>
+                <input type="file" id="additional-upload" accept="image/*" multiple class="hidden" />
+                <button id="confirm-added-images" class="hidden" type="button">Confirm Added Images</button>
+            </div>
+            <input type="text" id="tuning-parameter" placeholder="Tuning parameter" />
+        </div>
+        <div id="image-upload-step" style="display: none;">
+            <section class="image-upload-section">
+                <h2>Step 2: Upload and Order Spin Configurations</h2>
+                <input type="file" id="image-upload" accept="image/*" multiple />
+                <div id="image-preview"></div>
+                <button id="confirm-order" type="button" disabled>Next: Confirm Order</button>
+            </section>
+        </div>
+        <p id="upload-count">No images uploaded.</p>
+        <div id="image-labeling-section" class="hidden">
+            <h2>Step 3: Assign Tuning Parameter Values</h2>
+            <div class="labeling-container">
+                <div class="labeling-header">
+                    <span>Image</span>
+                    <span>Tuning Parameter</span>
+                </div>
+                <div id="labeling-list" class="scrollable-list">
+                    <!-- JS populates here -->
+                </div>
+                <button id="submit-labels" type="button">Submit</button>
+                <canvas id="accuracyChart" width="600" height="300"></canvas>
+            </div>
+        </div>
+        <div id="method-button" type="button">Method</div>
+        <div id="slideshow-modal" class="hidden" role="dialog" aria-modal="true">
+            <div class="modal-content">
+                <span class="close-button" role="button" aria-label="Close slideshow">&times;</span>
+                <div class="slide active">
+                    <strong>What is Learning by Confusion?</strong><br><br>
+                    Learning by Confusion is a machine learning technique used to identify phase transitions in physical systems.
+                    It works by intentionally mislabeling data around different candidate transition points and training neural networks to classify them.
+                    The accuracy of these models forms a characteristic "W-shaped" curve — and the center of this W reveals the actual phase transition point.
+                    <em>This method is being used here to automatically detect the critical point in your uploaded data.</em>
+                </div>
+                <div class="slide">
+                    <strong>Example: The Ising Model</strong><br><br>
+                    We apply it to the 2D Ising model — a classic system that exhibits a phase transition from an ordered to a disordered phase as temperature increases.
+                </div>
+                <div class="slide">
+                    <strong>Applying the Method</strong><br><br>
+                    Generate spin configurations at various temperatures.<br>
+                    Assign fake labels relative to trial temperature T':
+                    <ul>
+                        <li>T < T': Phase A</li>
+                        <li>T ≥ T': Phase B</li>
+                    </ul>
+                    Train a model to classify them. The performance curve across trials reveals confusion near criticality.
+                </div>
+                <div class="slide">
+                    <strong>Interpreting the W-Shape</strong><br><br>
+                    A dip in classification accuracy appears at the critical point. Multiple dips may indicate more than one transition.
+                </div>
+                <button class="nav prev" type="button">&#10094;</button>
+                <button class="nav next" type="button">&#10095;</button>
+            </div>
+        </div>
+    </main>
+    <script src="updated_phase_tool.js"></script>
+</body>
+</html>
